@@ -32,7 +32,7 @@ func main() {
 			fmt.Println("Завершение работы программы")
 			break
 		} else {
-			date := time.Now().Format("2020-02-10 15:00:00")
+			date := time.Now().Format(time.DateTime)
 			if _, err = f.WriteString(fmt.Sprintf("%d %s %s\n", i, date, text)); err != nil {
 				panic(err)
 			}
