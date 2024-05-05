@@ -19,18 +19,10 @@ func main() {
 		return
 	}
 
-	f, err := os.Open("file.txt")
+	dat, err := os.ReadFile("file.txt")
 	if err != nil {
-		fmt.Println("Ошибка открытия файла", err)
+		fmt.Println("Ошибка чтения файла", err)
 		return
 	}
-	defer f.Close()
-
-	buffer := make([]byte, 128)
-	_, err = f.Read(buffer)
-	if err != nil {
-		fmt.Println("Не смогли прочитать последовательность байтов из файла,", err)
-		return
-	}
-	fmt.Println(string(buffer))
+	fmt.Print(string(dat))
 }
