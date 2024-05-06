@@ -18,6 +18,7 @@ func main() {
 		os.Exit(1)
 	}
 	defer fileTest.Close()
+
 	if err := os.Chmod(fileName, 0400); err != nil { //Изменяем право доступа
 		os.Exit(2)
 	}
@@ -25,7 +26,7 @@ func main() {
 	if fileTest, err = os.Open(fileName); err != nil {
 		os.Exit(3)
 	}
-	defer fileTest.Close()
+
 	if _, err = fileTest.WriteString("Записываем вторую строку в файл"); err != nil {
 		os.Exit(5) //Добавили обработку ошибки для записи второй строки в файл
 	}
